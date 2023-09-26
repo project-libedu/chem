@@ -12,11 +12,11 @@
 	color: white;
 	isolation: isolate;
 	position: relative;
-	background: linear-gradient(0deg, rgb(0, 0, 0), rgba(0, 0, 0, 0) );
+	background: linear-gradient(0deg, rgb(0, 0, 0), rgba(0, 0, 0, 0));
 }
 .perigen_element::before {
 	inset: 0;
-	
+
 	position: absolute;
 	content: "";
 	z-index: -1;
@@ -24,12 +24,12 @@
 
 .perigen_element h1 {
 	text-align: center;
-	font-family:sans-serif;
+	font-family: sans-serif;
 }
 .perigen_element span {
 	display: block;
 	text-align: center;
-	font-family:sans-serif;
+	font-family: sans-serif;
 	font-size: small;
 }
 
@@ -37,7 +37,7 @@
 	filter: grayscale(1) brightness(0.3);
 	/* transition: 200ms; */
 	border: rgb(63, 169, 255) 0px;
-	border-style:ridge;
+	border-style: ridge;
 }
 
 .perigen_element-m-s:hover {
@@ -52,4 +52,17 @@
 
 .perigen_element-m-s.perigen_selected:hover {
 	filter: drop-shadow(black 0 0 2px) grayscale(0);
+}
+
+.perigen_element.animate {
+	transform: translateY(20%);
+	opacity: 0;
+	animation: perigetn_show 500ms cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+}
+
+@keyframes perigetn_show {
+	to {
+		transform: translateY(0%) scale(1);
+		opacity: 1;
+	}
 }

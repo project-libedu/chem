@@ -1,0 +1,32 @@
+nav {
+	display: flex;
+	position: sticky;
+	top: 0.5rem;
+}
+
+nav .left {
+	margin-left: 0.5rem;
+}
+nav .right {
+	flex-grow: 1;
+	text-align: right;
+	margin-right: 0.5rem;
+}
+
+nav button,
+a {
+	font-size: medium;
+	font-family: sans-serif;
+	padding: 0.5rem;
+	display: inline-block;
+	border: 0;
+	background-color: #303030;
+	color: white;
+	border-radius: 0.5rem;
+	text-decoration: none;
+}
+
+nav button:hover,
+a:hover {
+	background-color: #454545;
+}

@@ -6,8 +6,8 @@ const GenerateTable = async () => {
 		"https://raw.githubusercontent.com/Bowserinator/Periodic-Table-JSON/master/PeriodicTableJSON.json"
 	)
 	perigen.setDataSource(await dataRaw.json())
-
-	perigen.generate(true)
+	perigen.translate("cz")
+	perigen.generate(true, true)
 }
 
 // eslint-disable-next-line no-unused-vars

@@ -14,7 +14,7 @@ body.wrong {
 }
 
 input {
-	background-color: rgba(255, 255, 255, 0);
+	background-color: rgba(255, 255, 255, 0.062);
 	border: none;
 	outline: none;
 	padding: 0.5rem;
@@ -25,6 +25,10 @@ input {
 	text-align: center;
 	box-sizing: border-box;
 	border: #12121200 solid 2px;
+}
+
+input:focus {
+	background-color: rgba(255, 255, 255, 0);
 }
 
 body.correct input {
@@ -47,7 +51,7 @@ body.wrong input {
 	animation: show 800ms 0.5s forwards;
 	transition: 400ms;
 	aspect-ratio: 5/6;
-	background: linear-gradient(0deg, rgb(0, 0, 0), rgba(0, 0, 0, 0) );
+	background: linear-gradient(0deg, rgb(0, 0, 0), rgba(0, 0, 0, 0));
 }
 
 body.correct .guess-main {
@@ -60,7 +64,7 @@ body.wrong .guess-main {
 
 .guess-main h1 {
 	flex-grow: 1;
-	
+
 	margin: 0;
 	margin-top: 3.5rem;
 	text-align: center;
@@ -69,35 +73,97 @@ body.wrong .guess-main {
 
 @keyframes show {
 	0% {
-		transform:translateX( 30%) scale(0.8);
+		transform: translateX(30%) scale(0.8);
 		opacity: 0;
 	}
 	60% {
-		transform:translateX( 0%) scale(0.8);
+		transform: translateX(0%) scale(0.8);
 		opacity: 1;
 	}
 	100% {
-		transform:translateX( 0%);
+		transform: translateX(0%);
 		opacity: 1;
 	}
 }
 
 .guess-main.new {
 	opacity: 1;
-	animation: hide 800ms 0.5s forwards;
+	animation: hide 800ms 0s forwards;
 }
 
 @keyframes hide {
 	0% {
-		transform:translateX( 0%);
+		transform: translateX(0%);
 		opacity: 1;
 	}
 	40% {
-		transform:translateX( 0%) scale(0.8);
+		transform: translateX(0%) scale(0.8);
 		opacity: 1;
 	}
 	100% {
-		transform:translateX( -30%) scale(0.8);
+		transform: translateX(-30%) scale(0.8);
 		opacity: 0;
 	}
+}
+
+.popup {
+	position: fixed;
+	background-color: #171717;
+	padding: 1rem;
+	border-radius: 0.5rem;
+	bottom: 20px;
+	left: 50%;
+	transform: translateX(-50%);
+	max-width: 0;
+	padding-inline: 1rem;
+	opacity: 0;
+	overflow: hidden;
+	font-family: sans-serif;
+	transition:
+		background-color 500ms 0ms,
+		max-width 500ms 0ms,
+		opacity 200ms 300ms;
+}
+
+.popup.show {
+	max-width: 50%;
+	opacity: 1;
+	padding-inline: 1rem;
+	transition:
+		background-color 1000ms 00ms,
+		max-width 500ms 0ms,
+		opacity 200ms 0ms;
+}
+
+body.wrong .popup {
+	background-color: rgb(168, 0, 0);
+}
+.popup .main {
+	white-space: nowrap;
+	overflow: hidden;
+	display: block;
+}
+.popup .info {
+	white-space: nowrap;
+	overflow: hidden;
+	display: block;
+}
+
+.done {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	background-color: #171717;
+	padding: 2rem;
+	border-radius: 0.5rem;
+	text-align: center;
+	font-family: sans-serif;
+	transform: translate(-50%, -50%);
+	opacity: 0;
+	pointer-events: none;
+	transition: 1000ms;
+}
+.done.show {
+	pointer-events: all;
+	opacity: 1;
 }
