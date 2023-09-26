@@ -18,11 +18,13 @@ function getData() {
 		qviz.push({
 			symbol: perigen.getElement(elem).symbol,
 			name: perigen.getElement(elem).name,
+			color: perigen.getElement(elem)["cpk-hex"],
 		})
 	})
 	sessionStorage.setItem("qviz", "")
 
 	sessionStorage.setItem("qviz", JSON.stringify(qviz))
+	window.location.href = "./guess/"
 }
 
 document.getElementById("getdata").addEventListener("click", getData)
