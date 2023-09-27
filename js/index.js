@@ -1,5 +1,8 @@
 import { PeriGen } from "../lib/perigen/main.js"
 const perigen = new PeriGen("#periodictable-select")
+
+const urlParams = new URLSearchParams(window.location.search)
+const import_elements = urlParams.get("import")
 const GenerateTable = async () => {
 	// Source: https://github.com/Bowserinator/Periodic-Table-JSON
 	const dataRaw = await fetch(
@@ -7,7 +10,15 @@ const GenerateTable = async () => {
 	)
 	perigen.setDataSource(await dataRaw.json())
 	perigen.translate("cz")
+
 	perigen.generate(true, true)
+	if (import_elements) {
+		console.log(import_elements)
+		import_elements.split(",").forEach((el) => {
+			console.log(el)
+			perigen.select("#periodictable-select", el.toString())
+		})
+	}
 }
 
 // eslint-disable-next-line no-unused-vars
